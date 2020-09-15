@@ -1,3 +1,5 @@
 apache-airflow[gcp,aws]==1.10.12
 icon-etl>=0.0.1-b4
 google-cloud-bigquery
+psycopg2-binary
+SQLAlchemy~=1.3.18
