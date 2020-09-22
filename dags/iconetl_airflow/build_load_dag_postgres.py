@@ -5,13 +5,13 @@ import logging
 import os
 from datetime import datetime, timedelta
 from tempfile import TemporaryDirectory
+import sys
 import csv
 
 from airflow import models
 from airflow.hooks.postgres_hook import PostgresHook
 from airflow.operators.python_operator import PythonOperator
 
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from resources.stages.raw.schemas_postgres.block import Block
 from resources.stages.raw.schemas_postgres.log import Log
@@ -23,6 +23,18 @@ logging.basicConfig()
 logging.getLogger().setLevel(logging.DEBUG)
 
 MEGABYTE = 1024 * 1024
+
+maxInt = sys.maxsize
+
+while True:
+    # decrease the maxInt value by factor 10
+    # as long as the OverflowError occurs.
+
+    try:
+        csv.field_size_limit(maxInt)
+        break
+    except OverflowError:
+        maxInt = int(maxInt/10)
 
 
 def build_load_dag_postgres(
@@ -197,7 +209,10 @@ def build_load_dag_postgres(
 
     def insert_logs(file, engine, session):
         with open(file) as f:
-            logs = json.load(f)
+            logs = []
+            for line in f:
+                logs.append(json.loads(line))
+
             for log in logs:
                 session.add(
                     Log(
