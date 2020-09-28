@@ -53,20 +53,18 @@ def read_load_dag_vars(var_prefix, **kwargs):
     if cloud_provider is None:
         cloud_provider = 'gcp'
 
+    load_start_date = read_var('load_start_date', var_prefix, False, **kwargs)
+    load_start_date = datetime.strptime(load_start_date, '%Y-%m-%d')
+
     vars = {
         'cloud_provider': cloud_provider,
         'output_bucket': read_var('output_bucket', var_prefix, True, **kwargs),
         'destination_dataset_project_id': read_var('destination_dataset_project_id', var_prefix, True, **kwargs),
         'notification_emails': read_var('notification_emails', None, False, **kwargs),
         'schedule_interval': read_var('schedule_interval', var_prefix, True, **kwargs),
-        'load_all_partitions': parse_bool(read_var('load_all_partitions', var_prefix, True, **kwargs))
-        'load_start_date': read_var('load_start_date', var_prefix, False, **kwargs)
+        'load_all_partitions': parse_bool(read_var('load_all_partitions', var_prefix, True, **kwargs)),
+        'load_start_date': load_start_date
     }
-
-    load_start_date = read_var('load_start_date', vars, False, **kwargs)
-    if load_start_date is not None:
-        load_start_date = datetime.strptime(load_start_date, '%Y-%m-%d')
-        vars['load_start_date'] = load_start_date
 
     return vars
 
