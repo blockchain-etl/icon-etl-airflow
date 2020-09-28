@@ -63,7 +63,7 @@ def read_load_dag_vars(var_prefix, **kwargs):
         'notification_emails': read_var('notification_emails', None, False, **kwargs),
         'schedule_interval': read_var('schedule_interval', var_prefix, True, **kwargs),
         'load_all_partitions': parse_bool(read_var('load_all_partitions', var_prefix, True, **kwargs)),
-        'load_start_date': load_start_date,
+        'start_date': load_start_date,
     }
 
     return vars
@@ -84,7 +84,7 @@ def read_load_dag_redshift_vars(var_prefix, **kwargs):
         'aws_secret_access_key': read_var('aws_secret_access_key', var_prefix, True, **kwargs),
         'notification_emails': read_var('notification_emails', None, False, **kwargs),
         'schedule_interval': read_var('schedule_interval', var_prefix, True, **kwargs),
-        'load_start_date': load_start_date,
+        'start_date': load_start_date,
     }
 
     return vars
@@ -103,7 +103,7 @@ def read_load_dag_postgres_vars(var_prefix, **kwargs):
         'output_bucket': read_var('output_bucket', var_prefix, True, **kwargs),
         'notification_emails': read_var('notification_emails', None, False, **kwargs),
         'schedule_interval': read_var('schedule_interval', var_prefix, True, **kwargs),
-        'load_start_date': load_start_date,
+        'start_date': load_start_date,
     }
 
     return vars
