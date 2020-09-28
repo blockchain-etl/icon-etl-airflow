@@ -60,6 +60,7 @@ def read_load_dag_vars(var_prefix, **kwargs):
         'notification_emails': read_var('notification_emails', None, False, **kwargs),
         'schedule_interval': read_var('schedule_interval', var_prefix, True, **kwargs),
         'load_all_partitions': parse_bool(read_var('load_all_partitions', var_prefix, True, **kwargs))
+        'load_start_date': read_var('load_start_date', var_prefix, False, **kwargs)
     }
 
     load_start_date = read_var('load_start_date', vars, False, **kwargs)
