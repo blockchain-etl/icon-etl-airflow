@@ -24,7 +24,8 @@ if database == 'bigquery':
         chain='icon',
         **read_load_dag_vars(
             var_prefix='icon_',
-            schedule_interval='30 12 * * *'
+            schedule_interval='30 12 * * *',
+            import_start_date='2018-01-24',
         )
     )
 elif database == 'redshift':
@@ -34,7 +35,8 @@ elif database == 'redshift':
         chain='icon',
         **read_load_dag_redshift_vars(
             var_prefix='icon_',
-            schedule_interval='30 1 * * *'
+            schedule_interval='30 1 * * *',
+            import_start_date='2018-01-24',
         )
     )
 elif database == 'postgres':
@@ -43,7 +45,8 @@ elif database == 'postgres':
         chain='icon',
         **read_load_dag_postgres_vars(
             var_prefix='icon_',
-            schedule_interval='30 1 * * *'
+            schedule_interval='30 1 * * *',
+            import_start_date='2018-01-24',
         )
     )
 else:
