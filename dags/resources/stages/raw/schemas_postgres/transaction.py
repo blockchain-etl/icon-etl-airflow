@@ -12,7 +12,7 @@ class Transaction(Base):
     step_limit = Column(Numeric(38, 0, asdecimal=True))
     timestamp = Column(BigInteger)
     nid = Column(Integer)
-    nonce = Column(Numeric(38, 0, asdecimal=False))
+    nonce = Column(Numeric(100, 0, asdecimal=False))
     hash = Column(String, primary_key=True)
     transaction_index = Column(BigInteger)
     block_hash = Column(String)
