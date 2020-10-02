@@ -16,6 +16,7 @@ logging.getLogger().setLevel(logging.DEBUG)
 
 def build_load_dag_redshift(
         dag_id,
+        cloud_provider,
         output_bucket,
         aws_access_key_id,
         aws_secret_access_key,
