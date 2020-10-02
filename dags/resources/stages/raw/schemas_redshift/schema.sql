@@ -68,7 +68,7 @@ CREATE TABLE icon.transactions (
   from_address      VARCHAR(65535) NOT NULL,     -- Address of the sender
   to_address        VARCHAR(65535) DEFAULT NULL, -- Address of the receiver. null when its a contract creation transaction
   value             NUMERIC(38, 0) NOT NULL,     -- Value transferred
-  gas_limit         BIGINT         NOT NULL,     -- Gas provided by the sender
+  step_limit        BIGINT         NOT NULL,     -- Maximum step provided by the sender
   timestamp         BIGINT         NOT NULL,
   nid               VARCHAR(65535) NOT NULL,
   fee               NUMERIC(38,0)  DEFAULT NULL,
