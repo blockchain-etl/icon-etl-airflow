@@ -8,7 +8,7 @@ DAG = build_export_dag(
     dag_id='icon_export_dag',
     **read_export_dag_vars(
         var_prefix='icon_',
-        export_schedule_interval='0 13 * * *',
+        export_schedule_interval='0 12 * * *',
         export_start_date='2018-01-24',
         export_max_workers=10,
         export_batch_size=10,
