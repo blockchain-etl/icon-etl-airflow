@@ -60,7 +60,7 @@ sudo systemctl restart airflow-webserver
 | icon_database                 	| postgres                          	| The connection name for the database you're inserting data into    	|
 | icon_output_bucket            	|                                   	| The name of the output bucket for block data                       	|
 | icon_provider_uris            	| https://ctz.solidwallet.io/api/v3 	| The URI of the endpoint to use for block data                      	|
-| notification_emails           	|                   	                |                                                                    	|
+| notification_emails           	|                   	                | List of email addresses to notify about job status                   	|
 
 ### Export
 
@@ -77,6 +77,12 @@ sudo systemctl restart airflow-webserver
 
 ### Load
 
+| Variable                       	| Default 	| Description                               	|
+|--------------------------------	|:-------:	|-------------------------------------------	|
+| aws_access_key_id              	|         	| Access key ID to use for AWS Redshift     	|
+| aws_secret_access_key          	|         	| Secret access key to use for AWS Redshift 	|
+| load_all_partitions            	|   true  	| Load all partitions in BigQuery           	|
+| destination_dataset_project_id 	|         	| GCP Project ID for the BigQuery dataset   	|
 
 ## Schemas
 
