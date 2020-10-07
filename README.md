@@ -1,6 +1,5 @@
 # icon-etl-airflow
 
-
 ### Contents
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -16,6 +15,7 @@
   - [Transactions](#transactions)
   - [Logs](#logs)
   - [Receipts](#receipts)
+- [Credits](#credits)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -162,3 +162,8 @@ and can be used to create a transformed column in a new table or materialized vi
 | step_price            	| numeric(38,0) 	|
 | score_address         	| string        	|
 | status                	| string        	|
+
+## Credits
+
+ICON ETL Airflow was written by Richard Mah ([@shinyfoil](https://github.com/shinyfoil)) for Insight Infrastructure, and was based on [Ethereum ETL Airflow](https://github.com/blockchain-etl/ethereum-etl-airflow).
+The development was funded by the [ICON Foundation](https://icon.foundation/).
