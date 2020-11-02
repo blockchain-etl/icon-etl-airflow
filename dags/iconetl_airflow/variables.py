@@ -136,6 +136,21 @@ def read_analytics_db_maintenance_vars(var_prefix, **kwargs):
     return vars
 
 
+def nightly_reports_vars(var_prefix, **kwargs):
+    nightly_reports_start_date = read_var(
+        "maintenance_start_date", var_prefix, True, **kwargs
+    )
+    nightly_reports_start_date = datetime.strptime(
+        nightly_reports_start_date, "%Y-%m-%d"
+    )
+
+    vars = {
+        "nightly_reports_start_date": nightly_reports_start_date,
+    }
+
+    return vars
+
+
 def read_var(var_name, var_prefix=None, required=False, **kwargs):
     full_var_name = f"{var_prefix}{var_name}" if var_prefix is not None else var_name
     var = Variable.get(full_var_name, "")
