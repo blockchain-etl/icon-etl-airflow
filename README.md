@@ -26,7 +26,7 @@ To use with [terragrunt-icon-analytics:](https://github.com/insight-icon/terragr
 - copy contents of ./dags folder into /etc/airflow/dags and ensure airflow is the owner of files
 
 ```bash
-sudo cp ./dags /etc/airflow/dags
+sudo cp ./dags /etc/airflow/dags  # DAGs directory in ~/airflow/dags for docker based deployment
 sudo chown -R airflow:airflow /etc/airflow/dags
 ```
 
@@ -41,9 +41,12 @@ exit
 ```
 sudo systemctl restart airflow-scheduler
 sudo systemctl restart airflow-webserver
+
+# Or if using docker based deployment 
+docker-compose down && docker-compose up -d 
 ```
 
-- set mandatory variables
+- Set mandatory variables in the Airflow UI. 
   - icon_cloud_provider: aws
   - icon_database: postgres
   - icon_output_bucket: whatever-your-bucket-is-named
